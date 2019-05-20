@@ -2,10 +2,17 @@ package it.unibs.fp.lerovineperdute;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
+
+
 
 public class Gestione {
 	
@@ -67,7 +74,11 @@ public class Gestione {
 							default:
 								break;
 						}
+			        	 if (xmlr.getLocalName().equals("link")) {
+				    		 listaCitta.get(j-1).setCollegamenti(Integer.parseInt(xmlr.getAttributeValue(i)));
+				    	 }
 			         }
+			         
 			         break;
 			     
 				 case XMLStreamConstants.END_ELEMENT: // fine di un elemento: stampa il nome del tag chiuso 
@@ -95,6 +106,21 @@ public class Gestione {
 			 }
 		 
 		 System.out.println(listaCitta.size());
+		 System.out.println("\n\n\n");		 
+		 
+		 HashMap<Integer, String> mappa = new HashMap<>();
+		 for (int k = 0; k < listaCitta.size(); k++) {
+			mappa.put(listaCitta.get(k).getId(), listaCitta.get(k).getNome());
+		}
+		 Iterator<Map.Entry<Integer, String>> it = mappa.entrySet().iterator();
+		 while (it.hasNext()) {
+			Map.Entry<Integer, String> e = it.next();
+			System.out.println(e.getKey()+ " = "+ e.getValue());
+		}
+		 for (int k = 0; k < listaCitta.size(); k++) {
+			System.out.println(listaCitta.get(k)+ " è collegata alla "+listaCitta.get(k).getCollegamenti());
+		}
+		 
 	 }
 
 }

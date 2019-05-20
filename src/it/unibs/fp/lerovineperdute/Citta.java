@@ -11,12 +11,13 @@ public class Citta {
 	private ArrayList<Integer> collegamenti = new ArrayList<Integer>();
 	
 	
-	public Citta(int _id, String _nome, int _x, int _y, int _z) {
+	public Citta(int _id, String _nome, int _x, int _y, int _z, ArrayList<Integer> _collegamenti) {
 		this.id=_id;
 		this.nome=_nome;
 		this.x=_x;
 		this.y=_y;
 		this.z=_z;
+		this.collegamenti = _collegamenti;
 	}
 	
 	public Citta() {
@@ -74,6 +75,16 @@ public class Citta {
 
 	public void setZ(int z) {
 		this.z = z;
+	}
+	
+	
+	public void setCollegamenti (int _link) {
+		collegamenti.add(_link);
+	}
+	
+	
+	public String toString () {
+		return String.format("%d, %s (%d,%d,%d)",id, nome, x,y,z);
 	}
 	
 
