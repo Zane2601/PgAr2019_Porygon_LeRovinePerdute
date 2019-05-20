@@ -42,30 +42,30 @@ public class Gestione {
 			         for (int i = 0; i < xmlr.getAttributeCount(); i++) {
 			        	 System.out.printf(" => attributo %s->%s%n", xmlr.getAttributeLocalName(i), xmlr.getAttributeValue(i));
 			        	 switch (xmlr.getAttributeLocalName(i)) {
-						case "id":
-							int idInt = Integer.parseInt(xmlr.getAttributeValue(i));
-							listaCitta.get(j).setId(idInt);
-							System.out.println("id aggiunto");
-							break;
-
-						case "name":
-							listaCitta.get(j).setNome(xmlr.getAttributeValue(i));
-							break;
-						case "x":
-							int xInt = Integer.parseInt(xmlr.getAttributeValue(i));
-							listaCitta.get(j).setX(xInt);
-							break;
-						case "y":
-							int yInt = Integer.parseInt(xmlr.getAttributeValue(i));
-							listaCitta.get(j).setY(yInt);
-							break;
-						case "h":
-							int zInt = Integer.parseInt(xmlr.getAttributeValue(i));
-							listaCitta.get(j).setZ(zInt);
-							break;
+							case "id":
+								int idInt = Integer.parseInt(xmlr.getAttributeValue(i));
+								listaCitta.get(j-1).setId(idInt);
+								System.out.println("id aggiunto");
+								break;
 	
-						default:
-							break;
+							case "name":
+								listaCitta.get(j-1).setNome(xmlr.getAttributeValue(i));
+								break;
+							case "x":
+								int xInt = Integer.parseInt(xmlr.getAttributeValue(i));
+								listaCitta.get(j-1).setX(xInt);
+								break;
+							case "y":
+								int yInt = Integer.parseInt(xmlr.getAttributeValue(i));
+								listaCitta.get(j-1).setY(yInt);
+								break;
+							case "h":
+								int zInt = Integer.parseInt(xmlr.getAttributeValue(i));
+								listaCitta.get(j-1).setZ(zInt);
+								break;
+		
+							default:
+								break;
 						}
 			         }
 			         break;
