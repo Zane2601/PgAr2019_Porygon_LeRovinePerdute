@@ -18,6 +18,10 @@ public class Citta {
 		this.y=_y;
 		this.z=_z;
 	}
+	
+	public Citta() {
+		
+	}
 
 
 	public int getId() {
