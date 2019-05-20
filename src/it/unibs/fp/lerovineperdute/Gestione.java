@@ -1,6 +1,7 @@
 package it.unibs.fp.lerovineperdute;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -16,6 +17,10 @@ public class Gestione {
 	Citta c = new Citta();
 	
 	 public void leggiXml() {
+		 ArrayList<Citta> listaCitta = new ArrayList<Citta>();
+		 //contatore per contare nella listaCitta
+		 int j = 0;
+		 
 		 try {
 			 xmlif = XMLInputFactory.newInstance();
 			 xmlr = xmlif.createXMLStreamReader(mappa, new FileInputStream(mappa)); 
@@ -28,6 +33,12 @@ public class Gestione {
 			     
 				 case XMLStreamConstants.START_ELEMENT: // inizio di un elemento: stampa il nome del tag e i suoi attributi 
 			    	 System.out.println("Tag " + xmlr.getLocalName());
+			    	 if (xmlr.getLocalName().equals("city")) {
+			    		 Citta nuovaCitta = new Citta();
+			    		 listaCitta.add(nuovaCitta);
+			    		 System.out.println("nuova citta creata");
+			    		 j++;
+			    	 }
 			         for (int i = 0; i < xmlr.getAttributeCount(); i++)
 			        	 System.out.printf(" => attributo %s->%s%n", xmlr.getAttributeLocalName(i), xmlr.getAttributeValue(i)); 
 			         break;
@@ -55,6 +66,8 @@ public class Gestione {
 			 System.out.println("Errore nell'inizializzazione del reader:");
 			 System.out.println(e.getMessage()); 
 			 }
+		 
+		 System.out.println(listaCitta.size());
 	 }
 
 }
