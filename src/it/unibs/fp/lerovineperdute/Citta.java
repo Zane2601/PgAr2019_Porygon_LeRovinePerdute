@@ -44,6 +44,9 @@ public class Citta {
 		return z;
 	}
 
+	public ArrayList<Integer> getCollegamenti () {
+		return collegamenti;
+	}
 
 	public void setId(int id) {
 		this.id = id;
@@ -69,6 +72,5 @@ public class Citta {
 		this.z = z;
 	}
 	
-	//aggiungi nikita
 
 }
