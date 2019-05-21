@@ -12,7 +12,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
 
-
+import it.unibs.fp.grafi.*;
 
 public class Gestione {
 	
@@ -23,7 +23,7 @@ public class Gestione {
 	
 	Citta c = new Citta();
 	
-	 public void leggiXml() {
+	 public ArrayList<Citta> leggiXml() {
 		 ArrayList<Citta> listaCitta = new ArrayList<Citta>();
 		 //contatore per contare nella listaCitta
 		 int j = 0;
@@ -121,6 +121,28 @@ public class Gestione {
 			System.out.println(listaCitta.get(k)+ " è collegata alla "+listaCitta.get(k).getCollegamenti());
 		}
 		 
+		 return listaCitta;
+	 }
+	 
+	 
+	/**
+	 * crea il grafo
+	 * @param listaLuoghi, lista estratta dall'xml
+	 * @return grafoMappa, grafo creato con i collegamenti fra gli elementi della lista in entrata
+	 */
+	public Graph creaGrafo(ArrayList<Citta> listaLuoghi) {
+		
+		//dichiaro il grafo da ritornare alla fine
+		Graph grafoMappa = new GraphWithAdjMatrix(listaLuoghi.size());
+		 
+		//scorro gli elementi della lista
+		for (int i = 0; i < listaLuoghi.size(); i++) {
+			//scorro i collegamenti della citta
+			for (int j = 0; j < listaLuoghi.get(i).getCollegamenti().size(); j++) {
+				grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue());
+			}
+		}
+		 return grafoMappa;
 	 }
 
 }

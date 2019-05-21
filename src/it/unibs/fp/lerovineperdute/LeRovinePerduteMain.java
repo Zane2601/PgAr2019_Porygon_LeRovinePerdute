@@ -1,5 +1,6 @@
 package it.unibs.fp.lerovineperdute;
 
+import java.util.ArrayList;
 
 public class LeRovinePerduteMain {
 
@@ -7,8 +8,11 @@ public class LeRovinePerduteMain {
 		// TODO Auto-generated method stub
 		
 		Gestione g= new Gestione();
-		g.leggiXml();
+		ArrayList<Citta> listaEstratta= g.leggiXml();
+		
+        g.creaGrafo(listaEstratta).print();
 
+       
 	}
 
 }
