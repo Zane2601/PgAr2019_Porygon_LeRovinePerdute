@@ -8,7 +8,7 @@ public class Percorso {
 	
 	
 	public double distanzaDa(ArrayList<Citta> lista, int i, int j) {
-		return Math.sqrt(Math.pow(lista.get(i).getX() - lista.get(j).getX(), 2) + Math.pow(lista.get(i).getY() - lista.get(j).getY(), 2));
+		return Math.sqrt(Math.pow(lista.get(i).getX() - lista.get(lista.get(i).getCollegamenti().get(j)).getX(), 2) + Math.pow(lista.get(i).getY() - lista.get(lista.get(i).getCollegamenti().get(j)).getY(), 2));
 	}
 
 }
