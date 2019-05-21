@@ -114,7 +114,7 @@ public class Gestione {
 	 }
 	 
 	 
-	 public HashMap creaHashMap(ArrayList<Citta> listaCitta) {
+	 public static HashMap creaHashMap(ArrayList<Citta> listaCitta) {
 		 HashMap<Integer, String> mappa = new HashMap<>();
 		 for (int k = 0; k < listaCitta.size(); k++) {
 			mappa.put(listaCitta.get(k).getId(), listaCitta.get(k).getNome());
