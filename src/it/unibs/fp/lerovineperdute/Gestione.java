@@ -108,6 +108,13 @@ public class Gestione {
 		 System.out.println(listaCitta.size());
 		 System.out.println("\n\n\n");		 
 		 
+		 
+		 
+		 return listaCitta;
+	 }
+	 
+	 
+	 public HashMap creaHashMap(ArrayList<Citta> listaCitta) {
 		 HashMap<Integer, String> mappa = new HashMap<>();
 		 for (int k = 0; k < listaCitta.size(); k++) {
 			mappa.put(listaCitta.get(k).getId(), listaCitta.get(k).getNome());
@@ -121,9 +128,8 @@ public class Gestione {
 			System.out.println(listaCitta.get(k)+ " è collegata alla "+listaCitta.get(k).getCollegamenti());
 		}
 		 
-		 return listaCitta;
+		 return mappa;
 	 }
-	 
 	 
 	/**
 	 * crea il grafo

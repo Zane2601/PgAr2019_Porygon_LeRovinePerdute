@@ -10,6 +10,8 @@ public class LeRovinePerduteMain {
 		Gestione g= new Gestione();
 		ArrayList<Citta> listaEstratta= g.leggiXml();
 		
+		g.creaHashMap(listaEstratta);
+		
         g.creaGrafo(listaEstratta).print();
 
        
