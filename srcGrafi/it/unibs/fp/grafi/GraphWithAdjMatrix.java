@@ -39,15 +39,15 @@ public class GraphWithAdjMatrix implements Graph{
 	}
 	
 	public void print() {
-		System.out.print("   ");
+		System.out.print("   \t");
 		for(int i = 0; i<nodes; i++) {
-			System.out.print(String.format("%2d", i) + " ");
+			System.out.print(String.format("%2d", i) + " \t");
 		}
 		System.out.println("\n");
 		for(int i = 0; i<nodes; i++) {
-			System.out.print(String.format("%2d", i) + " ");
+			System.out.print(String.format("%2d", i) + " \t");
 			for (int j = 0; j<nodes; j++) {
-				System.out.print(String.format("%2d", adj[i][j]) + " ");
+				System.out.print(String.format("%2d", adj[i][j]) + " \t");
 			}
 			
 			System.out.println();

@@ -44,4 +44,6 @@ public interface Graph {
 	 * Stampa il grafo
 	 */
 	void print();
+	
+	void dijkstra();
 }

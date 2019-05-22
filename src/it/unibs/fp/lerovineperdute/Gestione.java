@@ -136,7 +136,7 @@ public class Gestione {
 	 * @param listaLuoghi, lista estratta dall'xml
 	 * @return grafoMappa, grafo creato con i collegamenti fra gli elementi della lista in entrata
 	 */
-	public Graph creaGrafo(ArrayList<Citta> listaLuoghi) {
+	public Graph creaGrafo(ArrayList<Citta> listaLuoghi, int scelta) {
 		Percorso p = new Percorso();
 		//dichiaro il grafo da ritornare alla fine
 		Graph grafoMappa = new GraphWithAdjMatrix(listaLuoghi.size());
@@ -145,7 +145,8 @@ public class Gestione {
 		for (int i = 0; i < listaLuoghi.size(); i++) {
 			//scorro i collegamenti della citta
 			for (int j = 0; j < listaLuoghi.get(i).getCollegamenti().size(); j++) {
-				grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDa(listaLuoghi, i, j));
+				if( scelta == 1) grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDaGruppo1(listaLuoghi, i, j));
+				else grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDaGruppo2(listaLuoghi, i, j));
 			}
 		}
 		 return grafoMappa;
