@@ -19,6 +19,7 @@ public class LeRovinePerduteMain {
         
         g.creaGrafo(listaEstratta,2).print();
 
+        g.creaGrafo(listaEstratta, 1).dijkstra();
        
 	}
 
