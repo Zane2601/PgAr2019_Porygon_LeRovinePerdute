@@ -2,6 +2,7 @@ package it.unibs.fp.lerovineperdute;
 
 import java.util.ArrayList;
 
+
 public class Citta {
 	private int id;
 	private String nome;

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class GraphWithAdjList implements Graph{
+public class GraphWithAdjList implements Graph {
 	private int nodes;
 	Map<Integer, LinkedList<Node>> adjList;
 	
@@ -58,5 +58,8 @@ public class GraphWithAdjList implements Graph{
 		}
 	}
 	
+	public void dijkstra() {
+		return;
+	}
 	
 }
