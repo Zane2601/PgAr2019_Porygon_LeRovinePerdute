@@ -16,9 +16,10 @@ public class Percorso {
 		return Math.abs(lista.get(i).getZ() - lista.get(lista.get(i).getCollegamenti().get(j)).getZ());
 	}
 	
-	/*public void dijkstra(<Graph> Graph grafo()) {
+	
+	public void dijkstra () {
 		
-	}*/
+	}
 
 
 }

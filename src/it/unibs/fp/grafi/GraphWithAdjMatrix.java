@@ -144,6 +144,9 @@ public class GraphWithAdjMatrix implements Graph{
 				posDistanzaMinima = i;
 			}
 			i++;
+			if (i==5 && posDistanzaMinima==-1) {
+				System.out.println("ERRORE, NON HA TROVATO LA POSIZIONE A DISTANZA MINIMA");
+			}
 		} while (posDistanzaMinima == -1);
 		return posDistanzaMinima;
 	}

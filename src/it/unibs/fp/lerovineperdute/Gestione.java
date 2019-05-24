@@ -14,6 +14,8 @@ import javax.xml.stream.XMLStreamReader;
 
 import it.unibs.fp.grafi.*;
 
+
+
 public class Gestione {
 	
 	XMLInputFactory xmlif = null;
@@ -145,11 +147,15 @@ public class Gestione {
 		for (int i = 0; i < listaLuoghi.size(); i++) {
 			//scorro i collegamenti della citta
 			for (int j = 0; j < listaLuoghi.get(i).getCollegamenti().size(); j++) {
-				if( scelta == 1) grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDaGruppo1(listaLuoghi, i, j));
+				if( scelta == 1) {
+					grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDaGruppo1(listaLuoghi, i, j));
+				}
 				else grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDaGruppo2(listaLuoghi, i, j));
 			}
 		}
 		 return grafoMappa;
 	 }
-
+	
+	
+	
 }
