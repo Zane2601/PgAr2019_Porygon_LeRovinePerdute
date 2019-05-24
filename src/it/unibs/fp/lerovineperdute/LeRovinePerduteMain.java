@@ -14,9 +14,9 @@ public class LeRovinePerduteMain {
 		
 		
 		//g.creaHashMap(listaEstratta);
-		System.out.println("\n\n");
+		//System.out.println("\n\n");
         //g.creaGrafo(listaEstratta,1).print();
-        System.out.println("\n\n");
+        //System.out.println("\n\n");
         //g.creaGrafo(listaEstratta,2).print();
 
         //g.creaGrafo(listaEstratta, 1).dijkstra();
