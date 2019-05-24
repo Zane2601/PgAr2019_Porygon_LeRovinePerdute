@@ -26,7 +26,10 @@ public class Gestione {
 	Citta c = new Citta();
 	
 	 public ArrayList<Citta> leggiXml() {
+		 
+		 
 		 ArrayList<Citta> listaCitta = new ArrayList<Citta>();
+		 
 		 //contatore per contare nella listaCitta
 		 int j = 0;
 		 
