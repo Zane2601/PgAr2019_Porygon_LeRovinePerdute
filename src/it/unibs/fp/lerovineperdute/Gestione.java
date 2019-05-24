@@ -21,7 +21,7 @@ public class Gestione {
 	XMLInputFactory xmlif = null;
 	XMLStreamReader xmlr=null;
 	
-	private String mappa = "PgAr_Map_10000.xml";
+	private String mappa = "PgAr_Map_5.xml";
 	
 	Citta c = new Citta();
 	
@@ -40,24 +40,24 @@ public class Gestione {
 				 switch (xmlr.getEventType()) { // switch sul tipo di evento
 				 
 				 case XMLStreamConstants.START_DOCUMENT: // inizio del documento: stampa che inizia il documento 
-					 System.out.println("Start Read Doc " + mappa); 
+					 //System.out.println("Start Read Doc " + mappa); 
 					 break;
 			     
 				 case XMLStreamConstants.START_ELEMENT: // inizio di un elemento: stampa il nome del tag e i suoi attributi 
-			    	 System.out.println("Tag " + xmlr.getLocalName());
+			    	 //System.out.println("Tag " + xmlr.getLocalName());
 			    	 if (xmlr.getLocalName().equals("city")) {
 			    		 Citta nuovaCitta = new Citta();
 			    		 listaCitta.add(nuovaCitta);
-			    		 System.out.println("nuova citta creata");
+			    		 //System.out.println("nuova citta creata");
 			    		 j++;
 			    	 }
 			         for (int i = 0; i < xmlr.getAttributeCount(); i++) {
-			        	 System.out.printf(" => attributo %s->%s%n", xmlr.getAttributeLocalName(i), xmlr.getAttributeValue(i));
+			        	 //System.out.printf(" => attributo %s->%s%n", xmlr.getAttributeLocalName(i), xmlr.getAttributeValue(i));
 			        	 switch (xmlr.getAttributeLocalName(i)) {
 							case "id":
 								int idInt = Integer.parseInt(xmlr.getAttributeValue(i));
 								listaCitta.get(j-1).setId(idInt);
-								System.out.println("id aggiunto");
+								//System.out.println("id aggiunto");
 								break;
 	
 							case "name":
@@ -87,16 +87,16 @@ public class Gestione {
 			         break;
 			     
 				 case XMLStreamConstants.END_ELEMENT: // fine di un elemento: stampa il nome del tag chiuso 
-			    	 System.out.println("END-Tag " + xmlr.getLocalName()); 
+			    	 //System.out.println("END-Tag " + xmlr.getLocalName()); 
 			    	 break;
 			     
 				 case XMLStreamConstants.COMMENT:
-			         System.out.println("// commento " + xmlr.getText()); 
+			         //System.out.println("// commento " + xmlr.getText()); 
 			         break; // commento: ne stampa il contenuto
 			     
 				 case XMLStreamConstants.CHARACTERS: // content all’interno di un elemento: stampa il testo 
 			    	 if (xmlr.getText().trim().length() > 0) // controlla se il testo non contiene solo spazi
-			         System.out.println("-> " + xmlr.getText()); 
+			         //System.out.println("-> " + xmlr.getText()); 
 			    	 break;
 			    	 }
 			    
@@ -106,12 +106,12 @@ public class Gestione {
 			 
 			 } 
 		 catch (Exception e) {
-			 System.out.println("Errore nell'inizializzazione del reader:");
-			 System.out.println(e.getMessage()); 
+			 //System.out.println("Errore nell'inizializzazione del reader:");
+			 //System.out.println(e.getMessage()); 
 			 }
 		 
-		 System.out.println(listaCitta.size());
-		 System.out.println("\n\n\n");		 
+		 //System.out.println(listaCitta.size());
+		 //System.out.println("\n\n\n");		 
 		 
 		 
 		 
