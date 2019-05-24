@@ -18,12 +18,20 @@ public class Percorso {
 	
 	
 	public void dijkstra () {
-		ArrayList<Citta> porcodio = g.leggiXml();
-		int lunghezza = porcodio.size();
-		Citta origine = porcodio.get(0);
-		Citta destinazione = porcodio.get(lunghezza-1);
+		ArrayList<Citta> listacitta = g.leggiXml();
+		int lunghezza = listacitta.size();
+		Citta origine = listacitta.get(0);
+		Citta destinazione = listacitta.get(lunghezza-1);
 		System.out.println("L'origine è " + origine);
-		System.out.println("La destinazione è" + destinazione);
+		System.out.println("La destinazione è " + destinazione);
+		for(int i=0; i<=origine.getId(); i++) {
+			for (int j=0; j<listacitta.get(i).getCollegamenti().size(); j++) {
+				System.out.println(""+ distanzaDaGruppo1(listacitta, i, j));
+				System.out.println("\n");
+				//System.out.println(""+ distanzaDaGruppo2(listacitta, i, j));
+			}
+		}
+		
 	}
 
 

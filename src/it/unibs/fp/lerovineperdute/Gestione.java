@@ -21,7 +21,7 @@ public class Gestione {
 	XMLInputFactory xmlif = null;
 	XMLStreamReader xmlr=null;
 	
-	private String mappa = "PgAr_Map_5.xml";
+	private String mappa = "PgAr_Map_10000.xml";
 	
 	Citta c = new Citta();
 	
