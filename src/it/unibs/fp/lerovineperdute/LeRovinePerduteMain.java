@@ -78,7 +78,7 @@ public class LeRovinePerduteMain {
         
         */
 		
-		private static void write(String fileName, LinkedHashSet<Node> set, LinkedList<CodiceFiscale> codiciSpaiati, LinkedList<CodiceFiscale> codiciFalsi) {
+		private static void write(String fileName, LinkedList<Persona> persone, LinkedList<CodiceFiscale> codiciSpaiati, LinkedList<CodiceFiscale> codiciFalsi) {
 	        System.out.println("Sto scrivendo il file...");
 	        XMLOutputFactory output = XMLOutputFactory.newInstance();
 	        XMLStreamWriter writer;
@@ -87,8 +87,8 @@ public class LeRovinePerduteMain {
 	            writer = output.createXMLStreamWriter(new FileWriter(fileName));
 	            writer.writeStartDocument("utf-8","1.0");
 	            writer.writeStartElement("output"); //apro il tag output
-	            writer.writeStartElement("Citta"); //apro il tag persone
-	            writer.writeAttribute("numero", set.size()+""); //scrivo nel tag persone quanti sottoelementi contiene
+	            writer.writeStartElement("persone"); //apro il tag persone
+	            writer.writeAttribute("numero", persone.size()+""); //scrivo nel tag persone quanti sottoelementi contiene
 	           //in questo ciclo scrivo nel file tutte le persone col rispettivo codice fiscale
 	            for(Persona persona: persone) {
 	                writer.writeStartElement("persona"); //apro il tag persona
