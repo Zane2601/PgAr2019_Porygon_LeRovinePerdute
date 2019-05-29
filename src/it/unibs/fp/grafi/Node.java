@@ -20,8 +20,9 @@ public class Node {
         this.name = name;
     }
     
-    public Node(int id) {
+    public Node(int id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public void addDestination(Node destination, int distance) {
