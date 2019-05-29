@@ -29,11 +29,15 @@ public class LeRovinePerduteMain {
 			
 		GraphTrovato grafo = g.creaGrafo(listaEstratta, 1, listaNodi);
 		
-		Set<Node> set = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
+		ArrayList<Node> set = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
 		
-		Iterator iter = set.iterator();
-		while (iter.hasNext()) {
-			System.out.println(iter.next().toString());
+		/*
+		 * Iterator iter = set.iterator(); while (iter.hasNext()) {
+		 * System.out.println(iter.next().toString()); }
+		 */
+		
+		for (int i = 0; i < set.size(); i++) {
+			System.out.println("Codice: " + listaEstratta.get(set.get(i).getId()).getId() + "\tNome città: " + listaEstratta.get(set.get(i).getId()).getNome());
 		}
 		
 		System.out.println("**************************************");
@@ -41,9 +45,10 @@ public class LeRovinePerduteMain {
 		
 		set = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
 		
-		iter = set.iterator();
-		while (iter.hasNext()) {
-			System.out.println(iter.next().toString());
+		
+		
+		for (int i = 0; i < set.size(); i++) {
+			System.out.println(set.get(i).getId() + set.get(i).getName());
 		}
 		
 		

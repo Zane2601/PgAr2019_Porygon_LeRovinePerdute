@@ -8,13 +8,13 @@ import java.util.Set;
 
 public class Dijkstra {
 
-    public static Set<Node> calculateShortestPathFromSource(GraphTrovato graph, Node source) {
+    public static ArrayList<Node> calculateShortestPathFromSource(GraphTrovato graph, Node source) {
 
         source.setDistance(0);
 
         Set<Node> settledNodes = new HashSet<>();
         Set<Node> unsettledNodes = new HashSet<>();
-        Set<Node> percorso = new HashSet<Node>();
+        ArrayList<Node> percorso = new ArrayList<Node>();
         unsettledNodes.add(source);
 
         while (unsettledNodes.size() != 0) {
