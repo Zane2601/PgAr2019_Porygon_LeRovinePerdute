@@ -24,7 +24,7 @@ public class LeRovinePerduteMain {
 		 
 		//aggiungo i nodi in una lista di Node
 		for (int i = 0; i < listaEstratta.size(); i++) {
-			Node nodo = new Node(listaEstratta.get(i).getId());
+			Node nodo = new Node(listaEstratta.get(i).getId(), listaEstratta.get(i).getNome());
 			listaNodi.add(nodo);
 		}
 			
@@ -35,7 +35,7 @@ public class LeRovinePerduteMain {
 		
 		Iterator iter = set.iterator();
 		while (iter.hasNext()) {
-			System.out.println("Codice: " + iter.next());
+			System.out.println(iter.next());
 			}
 		 
 		
@@ -50,7 +50,7 @@ public class LeRovinePerduteMain {
 		
 		iter = set.iterator();
 		while (iter.hasNext()) {
-			System.out.println("Codice: " + iter.next());
+			System.out.println(iter.next());
 			}
 		
 		/*
