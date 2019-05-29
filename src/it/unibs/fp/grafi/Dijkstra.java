@@ -2,19 +2,20 @@ package it.unibs.fp.grafi;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map.Entry;
 import java.util.Set;
 
 public class Dijkstra {
 
-    public static ArrayList<Node> calculateShortestPathFromSource(GraphTrovato graph, Node source) {
+    public static LinkedHashSet<Node> calculateShortestPathFromSource(GraphTrovato graph, Node source) {
 
         source.setDistance(0);
 
         Set<Node> settledNodes = new HashSet<>();
         Set<Node> unsettledNodes = new HashSet<>();
-        ArrayList<Node> percorso = new ArrayList<Node>();
+        LinkedHashSet<Node> percorso = new LinkedHashSet<Node>();
         unsettledNodes.add(source);
 
         while (unsettledNodes.size() != 0) {

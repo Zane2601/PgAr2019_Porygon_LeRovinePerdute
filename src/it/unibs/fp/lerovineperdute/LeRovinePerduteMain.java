@@ -2,6 +2,7 @@ package it.unibs.fp.lerovineperdute;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import it.unibs.fp.grafi.Dijkstra;
@@ -29,15 +30,17 @@ public class LeRovinePerduteMain {
 			
 		GraphTrovato grafo = g.creaGrafo(listaEstratta, 1, listaNodi);
 		
-		ArrayList<Node> set = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
+		LinkedHashSet<Node> set = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
 		
-		/*
-		 * Iterator iter = set.iterator(); while (iter.hasNext()) {
-		 * System.out.println(iter.next().toString()); }
-		 */
+		
+		Iterator iter = set.iterator();
+		while (iter.hasNext()) {
+			System.out.println("Codice: " + iter.next());
+			}
+		 
 		
 		for (int i = 0; i < set.size(); i++) {
-			System.out.println("Codice: " + listaEstratta.get(set.get(i).getId()).getId() + "\tNome città: " + listaEstratta.get(set.get(i).getId()).getNome());
+			//System.out.println("Codice: " + listaEstratta.get(set.get(i).getId()).getId() + "\tNome città: " + listaEstratta.get(set.get(i).getId()).getNome());
 		}
 		
 		System.out.println("**************************************");
@@ -45,12 +48,16 @@ public class LeRovinePerduteMain {
 		
 		set = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
 		
+		iter = set.iterator();
+		while (iter.hasNext()) {
+			System.out.println("Codice: " + iter.next());
+			}
 		
-		
+		/*
 		for (int i = 0; i < set.size(); i++) {
-			System.out.println(set.get(i).getId() + set.get(i).getName());
+			//System.out.println(set.get(i).getId() + set.get(i).getName());
 		}
-		
+		*/
 		
 		/*
 		//g.creaHashMap(listaEstratta);
