@@ -1,16 +1,20 @@
 package it.unibs.fp.lerovineperdute;
 
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.XMLStreamWriter;
 
 import it.unibs.fp.grafi.*;
 
@@ -21,11 +25,8 @@ public class Gestione {
 	XMLInputFactory xmlif = null;
 	XMLStreamReader xmlr=null;
 	
-<<<<<<< HEAD
-	private String mappa = "PgAr_Map_5.xml";
-=======
+
 	private String mappa = "PgAr_Map_10000.xml";
->>>>>>> f755eb2512f74792b5ea44724d7b5dfd34e86c26
 	
 	Citta c = new Citta();
 	
@@ -183,6 +184,54 @@ public class Gestione {
 		
 		 return grafoMappa;
 	 }
+	
+	public static void write(String fileName, LinkedHashSet<Node> hashSetCitta1, LinkedHashSet<Node> hashSetCitta2, ArrayList<Citta> listaCitta) {
+        System.out.println("Sto scrivendo il file...");
+        XMLOutputFactory output = XMLOutputFactory.newInstance();
+        XMLStreamWriter writer;
+
+        try {
+            writer = output.createXMLStreamWriter(new FileWriter(fileName));
+            writer.writeStartDocument("utf-8","1.0");
+            writer.writeStartElement("Routes"); //apro il tag output
+            for (int i = 0; i < 2; i++) {
+            	String team = "";
+            	LinkedHashSet<Node> hashSetCitta = new LinkedHashSet();
+				//ciclo per distinguere i due diversi gruppi
+            	if (i == 0) {
+					team += "Tonatiuh";
+					hashSetCitta = hashSetCitta1;
+				} else {
+					team += "Metztli";
+					hashSetCitta = hashSetCitta2;
+				}
+			writer.writeStartElement("Route");  //inizio percorso di una squadra
+            writer.writeAttribute("team", team); 
+            writer.writeAttribute("cities",  String.valueOf(hashSetCitta.size()));  //scrivo nel tag gruppo quanti sottoelementi contiene
+            writer.writeEndElement();
+            writer.writeStartElement("percorso"); //apro il tag persone
+            
+           //in questo ciclo scrivo nel file tutte le citta che vengono attraversate
+            for(Node nodo: hashSetCitta) {
+            	writer.writeStartElement("citta"); //apro il tag citta
+                
+                writer.writeAttribute("id", nodo.getId() + ""); //scrivo nel tag citta l'id
+                writer.writeAttribute("nome", nodo.getName()+""); //apro il tag nome
+                writer.writeEndElement();
+                }
+            writer.writeEndElement();
+            
+            }
+                writer.writeEndDocument(); //termino il documento
+            writer.flush(); //svuoto la cache di writer
+            writer.close(); //chiudo writer
+            System.out.println("scritto");
+        }
+        catch (Exception e) {
+            System.out.print("Errore");
+            e.printStackTrace();
+        }
+    }
 	
 	
 	

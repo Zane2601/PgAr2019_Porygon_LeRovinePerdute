@@ -7,7 +7,7 @@ import it.unibs.fp.grafi.Node;
 public class Percorso {
 	
 	Gestione g = new Gestione();
-	double min = 10000000.00;
+	double min = Double.POSITIVE_INFINITY;
 	
 	/*
 	 * public double distanzaDaGruppo1(ArrayList<Citta> listaCitta, int i, int j) {
