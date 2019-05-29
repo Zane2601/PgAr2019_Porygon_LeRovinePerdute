@@ -2,27 +2,46 @@ package it.unibs.fp.lerovineperdute;
 
 import java.util.ArrayList;
 
+import it.unibs.fp.grafi.Node;
+
 public class Percorso {
 	
 	Gestione g = new Gestione();
 	double min = 10000000.00;
 	
-	public double distanzaDaGruppo1(ArrayList<Citta> lista, int i, int j) {
+	/*
+	 * public double distanzaDaGruppo1(ArrayList<Citta> listaCitta, int i, int j) {
+	 * Citta cittaInizioCollegamento = listaCitta.get(i);
+	 * 
+	 * return Math.sqrt(Math.pow(cittaInizioCollegamento.getX() -
+	 * listaCitta.get(cittaInizioCollegamento.getCollegamenti().get(j)).getX(), 2) +
+	 * Math.pow(cittaInizioCollegamento.getY() -
+	 * listaCitta.get(cittaInizioCollegamento.getCollegamenti().get(j)).getY(), 2));
+	 * }
+	 * 
+	 * 
+	 * 
+	 * public double distanzaDaGruppo2(ArrayList<Citta> lista, int i, int j) {
+	 * return Math.abs(lista.get(i).getZ() - lista.get(lista.get(i).getCollegamenti().get(j)).getZ());
+	 * }
+	 */
+	
+	public double distanzaDaGruppo1(Citta origine, ArrayList<Citta> listaCitta, int indiceCollegamento) {
 		
-		return Math.sqrt(Math.pow(lista.get(i).getX() - lista.get(lista.get(i).getCollegamenti().get(j)).getX(), 2) + Math.pow(lista.get(i).getY() - lista.get(lista.get(i).getCollegamenti().get(j)).getY(), 2));
+		return Math.sqrt(Math.pow(origine.getX() - listaCitta.get(indiceCollegamento).getX(), 2) + Math.pow(origine.getY() - listaCitta.get(indiceCollegamento).getY(),2));
 	}
 	
-	public double distanzaDaGruppo2(ArrayList<Citta> lista, int i, int j) {
-		return Math.abs(lista.get(i).getZ() - lista.get(lista.get(i).getCollegamenti().get(j)).getZ());
+	public double distanzaDaGruppo2(Citta origine, ArrayList<Citta> listaCitta, int indiceCollegamento) {
+		return Math.abs(origine.getZ() -  listaCitta.get(indiceCollegamento).getZ());
 	}
 	
-	
+	/*
 	public void dijkstra () {
 		ArrayList<Citta> listacitta = g.leggiXml();
 		int lunghezza = listacitta.size();
 		double distanzaBase = 0; 
 		double distanzaFinale = 0;
-		Citta origine = listacitta.get(0);
+		Node origine = listacitta.get(0);
 		Citta destinazione = listacitta.get(lunghezza-1);
 		System.out.println("L'origine è " + origine);
 		System.out.println("La destinazione è " + destinazione);
@@ -67,5 +86,6 @@ public class Percorso {
 		
 	}
 
+	 */
 
 }

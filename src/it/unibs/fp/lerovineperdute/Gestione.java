@@ -21,7 +21,7 @@ public class Gestione {
 	XMLInputFactory xmlif = null;
 	XMLStreamReader xmlr=null;
 	
-	private String mappa = "PgAr_Map_5.xml";
+	private String mappa = "PgAr_Map_10000.xml";
 	
 	Citta c = new Citta();
 	
@@ -141,11 +141,30 @@ public class Gestione {
 	 * @param listaLuoghi, lista estratta dall'xml
 	 * @return grafoMappa, grafo creato con i collegamenti fra gli elementi della lista in entrata
 	 */
-	public Graph creaGrafo(ArrayList<Citta> listaLuoghi, int scelta) {
+	public GraphTrovato creaGrafo(ArrayList<Citta> listaLuoghi, int scelta, ArrayList<Node> listaNodi) {
 		Percorso p = new Percorso();
 		//dichiaro il grafo da ritornare alla fine
-		Graph grafoMappa = new GraphWithAdjMatrix(listaLuoghi.size());
-		 
+		GraphTrovato grafoMappa = new GraphTrovato();
+		
+		
+		for (int j = 0; j < listaNodi.size(); j++) {
+			for (int i = 0; i < listaLuoghi.get(j).getCollegamenti().size(); i++) {
+				int distanza;
+					if (scelta == 1) {
+						distanza = (int) p.distanzaDaGruppo1(listaLuoghi.get(i), listaLuoghi, j);
+						listaNodi.get(j).addDestination(listaNodi.get(i), distanza);
+					}
+					else {
+						distanza = (int) p.distanzaDaGruppo2(listaLuoghi.get(i), listaLuoghi, j);
+						listaNodi.get(j).addDestination(listaNodi.get(i), distanza);
+					}
+				
+			}
+	
+			grafoMappa.addNode(listaNodi.get(j));
+		}
+		
+		/*
 		//scorro gli elementi della lista
 		for (int i = 0; i < listaLuoghi.size(); i++) {
 			//scorro i collegamenti della citta
@@ -156,6 +175,8 @@ public class Gestione {
 				else grafoMappa.addEdgeOriented(listaLuoghi.get(i).getId(), listaLuoghi.get(i).getCollegamenti().get(j).intValue(),(int) p.distanzaDaGruppo2(listaLuoghi, i, j));
 			}
 		}
+		*/
+		
 		 return grafoMappa;
 	 }
 	
