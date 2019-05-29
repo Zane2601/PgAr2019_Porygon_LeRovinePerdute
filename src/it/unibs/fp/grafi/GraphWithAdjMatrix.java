@@ -184,7 +184,7 @@ public class GraphWithAdjMatrix implements Graph{
 		return numCollegamenti;
 	}
 
-	private int minimoNonZeroSet(Set<Integer> setCitta, ArrayList<Double> listaDistanze) {
+	/*private int minimoNonZeroSet(Set<Integer> setCitta, ArrayList<Double> listaDistanze) {
 		Iterator iter = setCitta.iterator();
 		Double min = listaDistanze.get(0);
 		Double i = 0.0;
@@ -199,7 +199,7 @@ public class GraphWithAdjMatrix implements Graph{
 		}
 		System.out.println("Il minimo non zero è " +min);
 		return i;
-	}
+	}*/
 	
 	//minimoNonZero con input int[] (forse non serve più)
 	private Double minimoNonZero(int[] array) {

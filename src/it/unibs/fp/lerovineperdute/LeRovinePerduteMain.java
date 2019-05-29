@@ -32,20 +32,18 @@ public class LeRovinePerduteMain {
 			listaNodi.add(nodo);
 		}
 			
-		GraphTrovato grafo = g.creaGrafo(listaEstratta, 1, listaNodi);
+		GraphTrovato grafo = g.creaGrafo(listaEstratta, 1, listaNodi);    //creiamo il grafo dalla lista estratta
 		
-		LinkedHashSet<Node> set1 = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));
+		LinkedHashSet<Node> set1 = Dijkstra.calculateShortestPathFromSource(grafo, listaNodi.get(0));  //calcoliamo il percorso minimo
 		
-		
-		Iterator iter = set1.iterator();
+		//stampiamo le città del percorso 1
+		Iterator iter = set1.iterator();  
 		while (iter.hasNext()) {
 			System.out.println(iter.next());
 			}
 		 
 		
-		for (int i = 0; i < set1.size(); i++) {
-			//System.out.println("Codice: " + listaEstratta.get(set.get(i).getId()).getId() + "\tNome città: " + listaEstratta.get(set.get(i).getId()).getNome());
-		}
+		
 		
 		System.out.println("**************************************");
 		grafo = g.creaGrafo(listaEstratta, 2, listaNodi);

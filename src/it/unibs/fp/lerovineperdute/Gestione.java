@@ -185,7 +185,7 @@ public class Gestione {
 		 return grafoMappa;
 	 }
 	
-	public static void write(String fileName, LinkedHashSet<Node> hashSetCitta1, LinkedHashSet<Node> hashSetCitta2, ArrayList<Citta> listaCitta) {
+	public void write(String fileName, LinkedHashSet<Node> hashSetCitta1, LinkedHashSet<Node> hashSetCitta2, ArrayList<Citta> listaCitta) {
         System.out.println("Sto scrivendo il file...");
         XMLOutputFactory output = XMLOutputFactory.newInstance();
         XMLStreamWriter writer;
